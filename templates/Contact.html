@@ -1,0 +1,35 @@
+{%extends 'Base.html'%}
+
+{%block title%}Contact Page{%endblock%}
+
+{%block content%}
+        <div class="contact-content">
+            <div class="form-container">
+                <form action="" method="post"> 
+                    <label for="email">E-mail:</label><br> 
+                    <input type="email" id="email" name="email" required><br>
+                    <label  for="name">Name:</label><br> 
+                    <input type="text" id="name" name="name" required><br>
+                    <label  for="descript">Description:</label><br> 
+                    <textarea id="descript" name="descript" required 
+                    placeholder="Type a description here..."></textarea><br>
+                    <input type="submit" id="submit" name="submit" value="SUBMIT">
+                </form> 
+            </div>
+            <div class="faq">
+                <h2>FAQ:</h2>
+                <h3>Q: When and Where is this event?</h3>
+                <h3 class="Answer">A: Normal is from 12pm-6pm every 2nd Saturday of</h3>
+                <h3 class="Answer">each month and the adult one is from 7pm onwards</h3>
+                <h3 class="Answer">of the last Friday of each month. Both are at the</h3>
+                <h3 class="Answer">Bayview Community Centre.</h3>
+                <h3>Q: Is this closed on holidays?</h3>
+                <h3 class="Answer">A: No, it runs every 2nd Saturday no matter what.</h3>
+                <h3>Q: Where do I sign up?</h3>
+                <h3 class="Answer">A: You don't, just show up and come play games!</h3>
+                <h3>Q: Any place I can get more info?</h3>
+                <h3 class="Answer">A: Yes, we have a facebook, email and phone</h3>
+                <h3 class="Answer">number, they will be linked at the bottom.</h3>
+            </div>
+        </div>
+{%endblock%}
