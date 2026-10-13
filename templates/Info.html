@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<head>
-    <title>Info Page</title>
-    <link rel="stylesheet" href="bbg.css">
-</head>
-<body>
-    <div class="page-container">
-        <header>
-            <a href="https://www.bayviewcentre.org.nz/"><img class="bcclogo" src="images/bcclogo.png" alt="Bayview Community Centre Logo"></a>
-            <img class="bbglogo" src="images/bbglogo.png" alt="Bayview Board Gamers Logo">
-        </header>
-        <nav>
-            <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="Info.html" class="hightlight">Info</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-            </ul>
-        </nav>
+{%extends 'Base.html'%}
+
+{%block title%}Info Page{%endblock%}
+
+{%block content%}
         <div class="info-content">
             <div class="first">
-                <img id="center" src="images/center.png" alt="A photo of the community centre">
-                <img id="catan" src="images/catan.png" alt="A top-down view of some people playing Catan">
+                <img id="center" src="static/images/center.png" alt="A photo of the community centre">
+                <img id="catan" src="static/images/catan.png" alt="A top-down view of some people playing Catan">
                 <p>The bayview board game day is held
                 at the Bayview Community Centre at 
                 72 Bayview Road, Bayview, Auckland.
@@ -37,12 +24,12 @@
                 there are opportunities to take them home
                 and play again with your family, just make
                 sure to bring them back.</p>
-                <img id="table" src="images/table.png" alt="A bunch of board games on a table">
-                <img id="games" src="images/tablefar.png" alt="A table with board games on it with a sign that reads board game lending library">
+                <img id="table" src="static/images/table.png" alt="A bunch of board games on a table">
+                <img id="games" src="static/images/tablefar.png" alt="A table with board games on it with a sign that reads board game lending library">
             </div>
             <div class="third">
-                <img id="nightclose" src="images/nightclose.png" alt="Some people playing a board game at night">
-                <img id="nightfar" src="images/nightfar.png" alt="A long shot of some people playing board games at night">
+                <img id="nightclose" src="static/images/nightclose.png" alt="Some people playing a board game at night">
+                <img id="nightfar" src="static/images/nightfar.png" alt="A long shot of some people playing board games at night">
                 <p>If the harder more complicated board games
                 are your style or you have a grudge against
                 children then there is an adult board
@@ -51,31 +38,7 @@
                 </p>
             </div>
             <div class="fourth">
-                <a href="Contact.html">For FAQ's And Contact Info</a>
+                <a href="{{url_for('contact')}}">For FAQ's And Contact Info</a>
             </div>
         </div>
-        <footer>
-            <div class="footer-text">
-            <p>Bayview Community Centre</p>
-            <p>72 Bayview Road, Bayview, Auckland 0629</p>
-            <p>PO Box 40391, Glenfield 0747</p>
-            </div>
-            <div class="second-footer-text">
-            <p>Email: community@bayviewcentre.org.nz</p>
-            <p>Office Phone: 09 443 0231</p>
-            <p>Office Hours: Weekdays 9am to 3pm</p>
-            </div>
-            <div class="right-footer">
-                <div class="footer-img-label">
-                <h3><a href="BCCFB.html">bayviewcommunitycentre</a></h3>
-                <h3><a href="BBGFB.html">bayviewboardgamers</a></h3>
-                </div>
-                <div class="footer-img">
-                <img src="images/image 3.png" alt="Facebook Logo">
-                <img src="images/image 3.png" alt="Facebook Logo">
-                </div>
-            </div>
-        </footer>
-    </div>
-</body>
-</html>
+{%endblock%}

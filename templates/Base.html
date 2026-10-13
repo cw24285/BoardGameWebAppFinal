@@ -11,9 +11,9 @@
         </header>
         <nav>
             <ul>
-                <li><a href="{{url_for('home')}}" class="hightlight">Home</a></li>
-                <li><a href="{{url_for('info')}}">Info</a></li>
-                <li><a href="{{url_for('contact')}}">Contact</a></li>
+                <li><a href="{{url_for('home')}}" {% if url_for(request.endpoint) == '/'%}class="hightlight"{% endif %}>Home</a></li>
+                <li><a href="{{url_for('info')}}" {% if url_for(request.endpoint) == '/info'%}class="hightlight"{% endif %}>Info</a></li>
+                <li><a href="{{url_for('contact')}}" {% if url_for(request.endpoint) == '/contact'%}class="hightlight"{% endif %}>Contact</a></li>
             </ul>
         </nav>
         {%block content%}{%endblock%}
@@ -30,8 +30,8 @@
             </div>
             <div class="right-footer">
                 <div class="footer-img-label">
-                <h3><a href="BCCFB.html">bayviewcommunitycentre</a></h3>
-                <h3><a href="BBGFB.html">bayviewboardgamers</a></h3>
+                <h3><a href="{{url_for('bccfb')}}">bayviewcommunitycentre</a></h3>
+                <h3><a href="{{url_for('bbgfb')}}">bayviewboardgamers</a></h3>
                 </div>
                 <div class="footer-img">
                 <img src="static/images/image 3.png" alt="Facebook Logo">

@@ -12,6 +12,18 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
+def init_db():
+    conn = sqlite3.connect(db)
+    conn.execute("""CREATE TABLE IF NOT EXISTS forms (
+                    form_id INTEGER PRIMARY KEY,
+                    email TEXT NOT NULL,
+                    name TEXT NOT NULL,
+                    message TEXT NOT NULL)""")
+    conn.commit()
+    conn.close()
+
+init_db()
+
 @app.route("/")
 def home():
     return render_template("Home.html")
@@ -31,6 +43,18 @@ def bbgfb():
 @app.route("/bccfb")
 def bccfb():
     return render_template("bccfb.html")
+
+@app.route("/post", methods=["POST"]) 
+def new_post(): 
+    email = request.form.get("email")
+    name = request.form.get("name")
+    message = request.form.get("message")
+    conn = get_db() 
+    conn.execute("INSERT INTO forms (email, name, message) VALUES (?, ?, ?)", 
+                 (email, name, message)) 
+    conn.commit() 
+    conn.close() 
+    return redirect(url_for("contact"))
 
 if __name__ == "__main__":
     app.run(debug=True)

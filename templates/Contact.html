@@ -5,14 +5,14 @@
 {%block content%}
         <div class="contact-content">
             <div class="form-container">
-                <form action="" method="post"> 
+                <form action="{{ url_for('new_post') }}" method="POST"> 
                     <label for="email">E-mail:</label><br> 
                     <input type="email" id="email" name="email" required><br>
                     <label  for="name">Name:</label><br> 
                     <input type="text" id="name" name="name" required><br>
-                    <label  for="descript">Description:</label><br> 
-                    <textarea id="descript" name="descript" required 
-                    placeholder="Type a description here..."></textarea><br>
+                    <label  for="message">Message:</label><br> 
+                    <textarea id="message" name="message" required 
+                    placeholder="Type a message here..."></textarea><br>
                     <input type="submit" id="submit" name="submit" value="SUBMIT">
                 </form> 
             </div>

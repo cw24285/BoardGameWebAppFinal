@@ -166,7 +166,7 @@ input{
     width: 400px;
 }
 
-#descript[type="text"]{
+#message[type="text"]{
     font-size: 25px;
 }
 
@@ -178,7 +178,7 @@ input[type="email"]{
     font-size: 20px;
 }
 
-#descript{
+#message{
     height: 90px;
 }
 
