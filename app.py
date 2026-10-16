@@ -58,3 +58,5 @@ def new_post():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+    #yoza broza, we should add login page and add admins who can see all forms.
