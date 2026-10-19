@@ -12,6 +12,8 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
+loggedin = True
+
 def init_db():
     conn = sqlite3.connect(db)
     conn.execute("""CREATE TABLE IF NOT EXISTS forms (
@@ -44,6 +46,14 @@ def bbgfb():
 def bccfb():
     return render_template("bccfb.html")
 
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+@app.route("/signup")
+def signup():
+    return render_template("signup.html")
+
 @app.route("/post", methods=["POST"]) 
 def new_post(): 
     email = request.form.get("email")
@@ -59,4 +69,4 @@ def new_post():
 if __name__ == "__main__":
     app.run(debug=True)
 
-    #yoza broza, we should add login page and add admins who can see all forms.
+    #yoza broza, we should add login page and add admins who can see all forms. 

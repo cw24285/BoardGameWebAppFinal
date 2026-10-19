@@ -7,7 +7,11 @@
     <div class="page-container">
         <header>
             <a href="https://www.bayviewcentre.org.nz/"><img class="bcclogo" src="static/images/bcclogo.png" alt="Bayview Community Centre Logo"></a>
-            <img class="bbglogo" src="static/images/bbglogo.png" alt="Bayview Board Gamers Logo">
+
+            <div class="login">
+                {% if loggedin == True %}<h2>Log in/Sign Up</h2>{% endif %}
+                <img class="bbglogo" src="static/images/bbglogo.png" alt="Bayview Board Gamers Logo">
+            </div>
         </header>
         <nav>
             <ul>

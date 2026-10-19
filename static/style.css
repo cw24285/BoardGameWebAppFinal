@@ -21,6 +21,22 @@ header{
     justify-content: space-between;
 }
 
+.login{
+    display: flex;
+    flex-direction: row;
+    height: 155px;
+}
+
+header .login h2{
+    margin: 0px;
+    align-self: center;
+    padding: 15px;
+    border-radius: 20px;
+    margin-right: 50px;
+    background-color: #398C4B;
+    color: white;
+}
+
 .bbglogo{
     width: 254px;
     height: 155px;

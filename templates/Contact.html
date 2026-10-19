@@ -1,4 +1,6 @@
-{%extends 'Base.html'%}
+{% if loggedin == True%} {% extends 'LoggedInBase.html'%} 
+{% else %} {% extends 'Base.html'%} 
+{% endif %}
 
 {%block title%}Contact Page{%endblock%}
 
