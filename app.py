@@ -50,9 +50,25 @@ def bccfb():
 def login():
     return render_template("login.html")
 
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
+@app.route("/loginpage", methods=["LOGIN"]) 
+def loginpage(): 
+    email = request.form.get("email")
+    password = request.form.get("password")
+    conn = get_db() 
+    conn.commit() 
+    conn.close() 
+    return redirect(url_for("home"))
+
+@app.route("/signup", methods=["SIGNUP"]) 
+def signup(): 
+    email = request.form.get("email")
+    password = request.form.get("password")
+    conn = get_db() 
+    conn.execute("INSERT INTO forms (email, password) VALUES (?, ?)", 
+                 (email, password)) 
+    conn.commit() 
+    conn.close() 
+    return redirect(url_for("home"))
 
 @app.route("/post", methods=["POST"]) 
 def new_post(): 
@@ -68,5 +84,3 @@ def new_post():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-    #yoza broza, we should add login page and add admins who can see all forms. 

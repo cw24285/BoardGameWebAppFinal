@@ -9,7 +9,7 @@
             <a href="https://www.bayviewcentre.org.nz/"><img class="bcclogo" src="static/images/bcclogo.png" alt="Bayview Community Centre Logo"></a>
 
             <div class="login">
-                {% if loggedin == True %}<h2>Log in/Sign Up</h2>{% endif %}
+                <a href="{{url_for('login')}}"><h2>Log in/Sign Up</h2></a>
                 <img class="bbglogo" src="static/images/bbglogo.png" alt="Bayview Board Gamers Logo">
             </div>
         </header>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <title>{%block title%}{%endblock%}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <a href="https://www.bayviewcentre.org.nz/"><img class="bcclogo" src="static/images/bcclogo.png" alt="Bayview Community Centre Logo"></a>
+
+            <div class="login">
+                <h2>Sign Out</h2>
+                <img class="bbglogo" src="static/images/bbglogo.png" alt="Bayview Board Gamers Logo">
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('home')}}" {% if url_for(request.endpoint) == '/'%}class="hightlight"{% endif %}>Home</a></li>
+                <li><a href="{{url_for('info')}}" {% if url_for(request.endpoint) == '/info'%}class="hightlight"{% endif %}>Info</a></li>
+                <li><a href="{{url_for('contact')}}" {% if url_for(request.endpoint) == '/contact'%}class="hightlight"{% endif %}>Contact</a></li>
+            </ul>
+        </nav>
+        {%block content%}{%endblock%}
+        <footer>
+            <div class="footer-text">
+            <p>Bayview Community Centre</p>
+            <p>72 Bayview Road, Bayview, Auckland 0629</p>
+            <p>PO Box 40391, Glenfield 0747</p>
+            </div>
+            <div class="second-footer-text">
+            <p>Email: community@bayviewcentre.org.nz</p>
+            <p>Office Phone: 09 443 0231</p>
+            <p>Office Hours: Weekdays 9am to 3pm</p>
+            </div>
+            <div class="right-footer">
+                <div class="footer-img-label">
+                    <h3><a href="{{url_for('bccfb')}}">bayviewcommunitycentre</a></h3>
+                    <h3><a href="{{url_for('bbgfb')}}">bayviewboardgamers</a></h3>
+                </div>
+                <div class="footer-img">
+                <a href="{{url_for('bccfb')}}">
+                    <img src="static/images/image 3.png" alt="Facebook Logo">
+                </a>
+                <a href="{{url_for('bbgfb')}}">
+                    <img src="static/images/image 3.png" alt="Facebook Logo">
+                </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

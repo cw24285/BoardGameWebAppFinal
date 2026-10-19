@@ -1,0 +1,28 @@
+{%extends 'Base.html'%}
+
+{%block title%}Login Page{%endblock%}
+
+{%block content%}
+        <div class="login-content">
+            <div class="log-in">
+                <form action="{{ url_for('loginpage') }}" method="POST"> 
+                    <label for="loginemail">E-mail:</label><br> 
+                    <input type="email" id="loginemail" name="loginemail" required><br>
+                    <label  for="loginpassword">Password:</label><br> 
+                    <input type="password" id="loginpassword" name="loginpassword" required><br>
+                    <input type="submit" id="loginsubmit" name="loginsubmit" value="SUBMIT">
+                </form> 
+            </div>
+            <div class="sign-up">
+                <form action="{{ url_for('signup') }}" method="POST"> 
+                    <label for="loginemail">E-mail:</label><br> 
+                    <input type="email" id="loginemail" name="loginemail" required><br>
+                    <label  for="loginpassword">Password:</label><br> 
+                    <input type="password" id="loginpassword" name="loginpassword" 
+                    pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$"
+                    title="Password must be at least 8 characters, contain at least one uppercase letter and one number." required><br>
+                    <input type="submit" id="loginsubmit" name="loginsubmit" value="SUBMIT">
+                </form> 
+            </div>
+        </div>
+{%endblock%}

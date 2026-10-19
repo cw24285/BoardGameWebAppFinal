@@ -27,7 +27,16 @@ header{
     height: 155px;
 }
 
-header .login h2{
+header .login a{
+    align-self: center;
+    text-decoration: none;
+}
+
+header .login a h2:hover{
+    background-color: #5ba56b;
+}
+
+header .login a h2{
     margin: 0px;
     align-self: center;
     padding: 15px;
@@ -35,6 +44,7 @@ header .login h2{
     margin-right: 50px;
     background-color: #398C4B;
     color: white;
+    transition: 0.3s ease;
 }
 
 .bbglogo{
@@ -42,6 +52,10 @@ header .login h2{
     height: 155px;
     border-radius: 80px;
     object-position: -1px;
+}
+
+.login-content{
+    margin: auto;
 }
 
 .bcclogo{
@@ -210,6 +224,7 @@ input[type="email"]{
     border-radius: 10px;
     border-width: 0px;
     color: #ffffff;
+    transition: 0.3s ease;
 }
 
 #submit:hover{
