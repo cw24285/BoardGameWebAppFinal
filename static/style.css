@@ -55,7 +55,55 @@ header .login a h2{
 }
 
 .login-content{
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+    margin-top: 150px;
+}
+
+.login-content h1{
+    color: #398C4B;
+    font-family: 'Segoe UI';
+    font-weight: 700;
+    font-size: 37px;
+}
+
+#loginsubmit{
+    background-color: #398C4B;
+    font-family: sans-serif;
+    font-weight: 1000;
+    font-size: 30px;
+    width: 220px;
+    height: 50px;
+    margin-top: 15px;
+    align-self: center;
+    border-radius: 10px;
+    border-width: 0px;
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+#loginsubmit:hover{
+    background-color: #5ba56b;
+}
+
+#signupsubmit{
+    background-color: #398C4B;
+    font-family: sans-serif;
+    font-weight: 1000;
+    font-size: 30px;
+    width: 220px;
+    height: 50px;
+    margin-top: 15px;
+    align-self: center;
+    border-radius: 10px;
+    border-width: 0px;
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+#signupsubmit:hover{
+    background-color: #5ba56b;
 }
 
 .bcclogo{

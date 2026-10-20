@@ -1,11 +1,12 @@
 from flask import Flask, render_template, redirect, request, url_for
 from pathlib import Path
 import sqlite3
+import hashlib
 
 app = Flask (__name__)
 
 folder = Path(__file__).resolve().parent
-db = "form.db"
+db = "bayviewboardgame.db"
 
 def get_db():
     conn = sqlite3.connect(folder/db)
@@ -21,6 +22,12 @@ def init_db():
                     email TEXT NOT NULL,
                     name TEXT NOT NULL,
                     message TEXT NOT NULL)""")
+    
+    conn.execute("""CREATE TABLE IF NOT EXISTS logins (
+                    login_id INTEGER PRIMARY KEY,
+                    email TEXT NOT NULL,
+                    password TEXT NOT NULL,
+                    admin INTEGER NOT NULL DEFAULT 0)""")
     conn.commit()
     conn.close()
 
@@ -59,13 +66,18 @@ def loginpage():
     conn.close() 
     return redirect(url_for("home"))
 
-@app.route("/signup", methods=["SIGNUP"]) 
+@app.route("/signup", methods=["POST"]) 
 def signup(): 
-    email = request.form.get("email")
-    password = request.form.get("password")
+    email = request.form.get("signupemail")
+    password = request.form.get("signuppassword")
+    print(password)
+    data = password.encode()
+    print(data)
+    hash = hashlib.sha256(data).hexdigest()
+    print(hash)
     conn = get_db() 
-    conn.execute("INSERT INTO forms (email, password) VALUES (?, ?)", 
-                 (email, password)) 
+    conn.execute("INSERT INTO logins (email, password) VALUES (?, ?)", 
+                 (email, hash)) 
     conn.commit() 
     conn.close() 
     return redirect(url_for("home"))

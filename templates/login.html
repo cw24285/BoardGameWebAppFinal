@@ -5,6 +5,7 @@
 {%block content%}
         <div class="login-content">
             <div class="log-in">
+                <h1>Log In</h1>
                 <form action="{{ url_for('loginpage') }}" method="POST"> 
                     <label for="loginemail">E-mail:</label><br> 
                     <input type="email" id="loginemail" name="loginemail" required><br>
@@ -14,14 +15,15 @@
                 </form> 
             </div>
             <div class="sign-up">
+                <h1>Sign Up</h1>
                 <form action="{{ url_for('signup') }}" method="POST"> 
-                    <label for="loginemail">E-mail:</label><br> 
-                    <input type="email" id="loginemail" name="loginemail" required><br>
-                    <label  for="loginpassword">Password:</label><br> 
-                    <input type="password" id="loginpassword" name="loginpassword" 
+                    <label for="signupemail">E-mail:</label><br> 
+                    <input type="email" id="signupemail" name="signupemail" required><br>
+                    <label  for="signuppassword">Password:</label><br> 
+                    <input type="password" id="signuppassword" name="signuppassword" 
                     pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$"
                     title="Password must be at least 8 characters, contain at least one uppercase letter and one number." required><br>
-                    <input type="submit" id="loginsubmit" name="loginsubmit" value="SUBMIT">
+                    <input type="submit" id="signupsubmit" name="signupsubmit" value="SUBMIT">
                 </form> 
             </div>
         </div>
