@@ -1,9 +1,10 @@
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, flash
 from pathlib import Path
 import sqlite3
 import hashlib
 
 app = Flask (__name__)
+app.secret_key = "55370e71b9e52ea8de1bf08597b020b25128e6c4d598228fb9354c588166080f"
 
 folder = Path(__file__).resolve().parent
 db = "bayviewboardgame.db"
@@ -69,18 +70,22 @@ def loginpage():
 @app.route("/signup", methods=["POST"]) 
 def signup(): 
     email = request.form.get("signupemail")
-    password = request.form.get("signuppassword")
-    print(password)
-    data = password.encode()
-    print(data)
-    hash = hashlib.sha256(data).hexdigest()
-    print(hash)
-    conn = get_db() 
-    conn.execute("INSERT INTO logins (email, password) VALUES (?, ?)", 
-                 (email, hash)) 
-    conn.commit() 
-    conn.close() 
-    return redirect(url_for("home"))
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT 1 FROM logins WHERE email = ?", (email,))
+    if cursor.fetchone():
+        conn.close()
+        flash("Email already exists.","signup")
+        return redirect(url_for("login"))
+    else:
+        password = request.form.get("signuppassword")
+        data = password.encode()
+        hash = hashlib.sha256(data).hexdigest()
+        conn.execute("INSERT INTO logins (email, password) VALUES (?, ?)", 
+                    (email, hash)) 
+        conn.commit() 
+        conn.close() 
+        return redirect(url_for("home"))
 
 @app.route("/post", methods=["POST"]) 
 def new_post(): 

@@ -6,6 +6,9 @@
         <div class="login-content">
             <div class="log-in">
                 <h1>Log In</h1>
+                {% for message in get_flashed_messages(category_filter=["login"]) %}
+                    <p class="loginflash">{{ message }}</p>
+                {% endfor %}
                 <form action="{{ url_for('loginpage') }}" method="POST"> 
                     <label for="loginemail">E-mail:</label><br> 
                     <input type="email" id="loginemail" name="loginemail" required><br>
@@ -16,8 +19,11 @@
             </div>
             <div class="sign-up">
                 <h1>Sign Up</h1>
+                {% for message in get_flashed_messages(category_filter=["signup"]) %}
+                    <p class="signupflash">{{ message }}</p>
+                {% endfor %}
                 <form action="{{ url_for('signup') }}" method="POST"> 
-                    <label for="signupemail">E-mail:</label><br> 
+                    <label for="signupemail">E-mail:</label><br>
                     <input type="email" id="signupemail" name="signupemail" required><br>
                     <label  for="signuppassword">Password:</label><br> 
                     <input type="password" id="signuppassword" name="signuppassword" 

@@ -436,3 +436,10 @@ form{
     transform: scale(1.2) rotateZ(0deg);
     z-index: 10;
 }
+
+.signupflash{
+    background-color: #398C4B;
+    position: absolute;
+    top: 500px;
+    left: 1190px;
+}
