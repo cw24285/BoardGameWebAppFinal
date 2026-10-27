@@ -17,6 +17,7 @@
                 <li><a href="{{url_for('home')}}" {% if url_for(request.endpoint) == '/'%}class="hightlight"{% endif %}>Home</a></li>
                 <li><a href="{{url_for('info')}}" {% if url_for(request.endpoint) == '/info'%}class="hightlight"{% endif %}>Info</a></li>
                 <li><a href="{{url_for('contact')}}" {% if url_for(request.endpoint) == '/contact'%}class="hightlight"{% endif %}>Contact</a></li>
+                <li><a href="{{url_for('adminform')}}" {% if url_for(request.endpoint) == '/adminform'%}class="hightlight"{% endif %}>Admin Form</a></li>
             </ul>
         </nav>
         {%block content%}{%endblock%}

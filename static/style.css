@@ -47,6 +47,43 @@ header .login a h2{
     transition: 0.3s ease;
 }
 
+header .login h2 {
+    margin: 0px;
+    align-self: center;
+    padding: 15px;
+    border-radius: 20px;
+    margin-right: 50px;
+    background-color: #398C4B;
+    color: white;
+    transition: 0.3s ease;
+}
+
+header .login h2:hover{
+    background-color: #5ba56b;
+}
+
+.adminform-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+th{
+    background-color: #398C4B;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+table{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+    background-color: #5ba56b;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 .bbglogo{
     width: 254px;
     height: 155px;

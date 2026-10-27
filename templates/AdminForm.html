@@ -1,0 +1,26 @@
+{% extends base %}
+
+{% block title %}Admin Form Page{% endblock %}
+
+{% block content %}
+<div class="adminform-content">
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Message</th>
+        </tr>
+        {% for x in forms %}
+        <tr>
+            <td>{{ x[0] }}</td>
+            <td>{{ x[1] }}</td>
+            <td>{{ x[2] }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="3">No messages yet.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

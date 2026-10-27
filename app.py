@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, url_for, flash
+from flask import Flask, render_template, redirect, request, url_for, flash, session
 from pathlib import Path
 import sqlite3
 import hashlib
@@ -36,15 +36,21 @@ init_db()
 
 @app.route("/")
 def home():
-    return render_template("Home.html")
+    base = "loggedinbase.html" if "email" in session else\
+    "base.html"
+    return render_template("Home.html", base=base)
 
 @app.route("/contact")
 def contact():
-    return render_template("Contact.html")
+    base = "loggedinbase.html" if "email" in session else\
+    "base.html"
+    return render_template("Contact.html", base=base)
 
 @app.route("/info")
 def info():
-    return render_template("Info.html")
+    base = "loggedinbase.html" if "email" in session else\
+    "base.html"
+    return render_template("Info.html", base=base)
 
 @app.route("/bbgfb")
 def bbgfb():
@@ -56,16 +62,40 @@ def bccfb():
 
 @app.route("/login")
 def login():
-    return render_template("login.html")
+    base = "loggedinbase.html" if "email" in session else\
+    "base.html"
+    return render_template("login.html", base=base)
 
-@app.route("/loginpage", methods=["LOGIN"]) 
+@app.route("/adminform")
+def adminform():
+    base = "loggedinbase.html" if "email" in session else "base.html"
+
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT email, name, message FROM forms ORDER BY form_id DESC")
+    forms = cursor.fetchall()
+    conn.close()
+
+    return render_template("AdminForm.html", base=base, forms=forms)
+
+@app.route("/loginpage", methods=["POST"]) 
 def loginpage(): 
-    email = request.form.get("email")
-    password = request.form.get("password")
+    email = request.form.get("loginemail")
+    password = request.form.get("loginpassword")
     conn = get_db() 
-    conn.commit() 
-    conn.close() 
-    return redirect(url_for("home"))
+    cursor = conn.cursor()
+    cursor.execute("SELECT password, admin FROM logins WHERE email =?", (email,))
+    row = cursor.fetchone()
+
+    hash = hashlib.sha256(password.encode()).hexdigest()
+
+    if row and row[0] == hash:
+        session["email"] = email
+        session["is_admin"] = bool(row[1])
+        return redirect(url_for("home"))
+
+    flash("Incorrect email or password.", "login")
+    return redirect(url_for("login"))
 
 @app.route("/signup", methods=["POST"]) 
 def signup(): 
