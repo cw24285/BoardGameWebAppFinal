@@ -66,20 +66,23 @@ header .login h2:hover{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 th{
-    background-color: #398C4B;
+    background-color: rgb(206, 206, 206);
     border-radius: 10px;
     padding: 10px;
+    border: black 1px solid;
+}
+
+tr{
+   border: black 1px solid; 
 }
 
 table{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: auto;
-    background-color: #5ba56b;
+    width: calc(100% - 15rem);
+    background-color: #EBE6E6;
     border-radius: 10px;
     padding: 10px;
 }
